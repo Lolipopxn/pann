@@ -11,7 +11,7 @@ exports.up = function(knex) {
             table.string('user_code', 64).notNullable();
         })
         .createTable('user_result', function (table) {
-            table.increment('id').primary();
+            table.increments('id').primary();
             table.integer('announcement_id').unsigned();
             table.foreign('announcement_id').references('announcement.id');
             table.string('result', 255);
