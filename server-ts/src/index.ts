@@ -1,16 +1,22 @@
 import Koa from 'koa'
-import json from 'koa-json'
 import apiRouter from './api'
 import appConfig from './config'
+
 import loadFixtures from './fixtures'
 import { koaBody } from 'koa-body'
+import { initSsoCert } from './auth'
+import cors from '@koa/cors'
 
 const app = new Koa ()
 
-app.use(json())
-app.use(koaBody())
-app.use(apiRouter.routes())
+app.use(cors());
+app.use(koaBody());
 
-app.listen(8000)
+app.use(apiRouter.routes());
 
-loadFixtures(appConfig.clearDataBeforeLoad)
+(async () => {
+    await loadFixtures(appConfig.clearDataBeforeLoad)
+    await initSsoCert()
+    app.listen(8000)
+    console.log('Server is ready at port 8000')
+})();
