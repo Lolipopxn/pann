@@ -2,7 +2,7 @@ import { Route, Routes, useLocation, Navigate } from "react-router-dom"
 import { useAppCtx } from "../AppProvider"
 
 import Login from "../pages/login"
-import PannAppbar from "../components/pann-app-bar"
+import UserResultList from "../pages/user-result-list"
 
 type Props = {
     staffOnly?: boolean
@@ -29,7 +29,7 @@ const AppRoutes = () => {
         <Routes>
             <Route index element={<Login />} />
             <Route path="login" element={<Login />}/>
-            <Route path="home" element={<ProtectedRoute><PannAppbar/></ProtectedRoute>} />
+            <Route path="home" element={<ProtectedRoute><UserResultList/></ProtectedRoute>} />
         </Routes>
     )
 }
