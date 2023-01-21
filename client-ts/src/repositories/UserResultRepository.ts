@@ -36,7 +36,7 @@ export class UserResultRepository implements IRepository<UserResult> {
     }
 
     async view(id: string|number): Promise<UserResult | null> {
-        const resp = await ax.get<UserResult>(`${this.urlPrefix}/userResult/${id}/markAsViewed`)
+        const resp = await ax.get<UserResult>(`${this.urlPrefix}/userResult/${id}/markAsViewd`)
         return resp.data
     }
 
@@ -46,7 +46,7 @@ export class UserResultRepository implements IRepository<UserResult> {
     }
 
     async toggleIsPinned(id: string|number): Promise<UserResult | null> {
-        const resp = await ax.get<UserResult>(`${this.urlPrefix}/userResult/${id}/pin`)
+        const resp = await ax.get<UserResult>(`${this.urlPrefix}/userResult/${id}/pin/1`)
         return resp.data
     }
 
