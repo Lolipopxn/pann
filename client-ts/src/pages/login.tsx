@@ -1,4 +1,4 @@
-import { BottomNavigation, Button, Paper } from '@mui/material'
+import { Button, Paper } from '@mui/material'
 import { Image } from 'mui-image'
 import { Box } from '@mui/system'
 import { Login as LoginIcon } from '@mui/icons-material'
@@ -43,6 +43,11 @@ function Login() {
     if (auth.isAuthenticated) {
         if (userInfo.ready) {
             const backTo = location.state?.bactTo || '/home'
+            if(action.isStaff()){
+                return (
+                    <Navigate to='/announcement' replace />
+                )
+            }
             return (
                 <Navigate to={backTo} replace />
             )

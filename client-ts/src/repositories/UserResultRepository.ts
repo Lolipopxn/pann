@@ -1,7 +1,6 @@
 import { IRepository } from "./IRepository";
 import UserResult from "../models/UserResult";
 import config, { ax } from "../config";
-import { User } from "oidc-client-ts";
 
 export interface UserResultFilter {
     keyword?: string
