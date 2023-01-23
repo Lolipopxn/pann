@@ -57,17 +57,17 @@ function Login() {
     }
     return (
 
-        <Paper sx={{ bgcolor: '#E3F6FF'}}>
+        <div>
             <center>
-                <Image src="/psu.png" height="25%" width="25%" fit="cover" shift={null}/>
+                <Image src="/psu2.png" height="55%" width="55%" fit="cover" shift={null}/>
             </center>
-            <Box sx={{display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: 330}}>
+            <Box sx={{display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight:0}}>
                 <Button variant='contained' sx={{fontSize: 'large'}} onClick={() => void auth.signinRedirect()}>
                     <LoginIcon sx={{mr: 2}}/>
                     Log in
                 </Button>       
             </Box>
-        </Paper>  
+        </div>
     )
 }
 
