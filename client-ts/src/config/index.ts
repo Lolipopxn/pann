@@ -9,6 +9,7 @@ export const oidcConfig: AuthProviderProps = {
     client_id: 'pann',
     scope: 'openid profile offline_access',
     redirect_uri: 'http://localhost:3000',
+    post_logout_redirect_uri: 'http://localhost:3000',
     monitorSession: true
 }
 
