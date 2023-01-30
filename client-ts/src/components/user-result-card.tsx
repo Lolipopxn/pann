@@ -13,6 +13,7 @@ interface Prop {
 function UserResultCard(props: Prop) {
     const [userResult, setUserResult] = useState<UserResult>(props.userResult)
     const [popup, setPopup] = useState(false)
+    const [pinned, setPinned] = useState(false)
 
     const onOpenPopup = async () => {
         if(!userResult.viewDateTime){
@@ -34,10 +35,20 @@ function UserResultCard(props: Prop) {
     }
 
     const handleToggleIsPinned = async () => {
-        const result = await Repo.userResults.toggleIsPinned(userResult.id)
+      if(pinned == false){
+        const result = await Repo.userResults.toggleIsPinned(userResult.id,true)
         if(result) {
             setUserResult(result)
+            setPinned(true)
         }
+      }
+      else{
+        const result = await Repo.userResults.toggleIsPinned(userResult.id,false)
+        if(result) {
+            setUserResult(result)
+            setPinned(false)
+        }
+      }
     }
 
     const getConditionalRemark = () => {
